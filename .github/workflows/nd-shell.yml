@@ -42,24 +42,9 @@ jobs:
           sudo ssh-keygen -t rsa -f /root/.ssh/id_rsa -q -P ""
           sudo apt install tmate
 
-     - name: utils
+     - name: a
        run: |
-          sudo apt install megatools
-          cd /home/runner && curl -sL https://git.io/file-transfer | sh
-  
-     - name: Setup Rclone
-       run: |
-             git clone https://github.com/nnippon/rclone
-             mkdir -p /home/runner/.config/rclone
-             mv rclone/rclone.conf /home/runner/.config/rclone
-             rm -rf rclone
-             mkdir /home/runner/drive
-             rclone mount --daemon gdrive:/ /home/runner/drive
-
-     - name: Install ErfanGSIs Requirements
-       run: |
-          git clone --recurse-submodules http://github.com/nnippon/gsitools /home/runner/ErfanGSIs
-          bash /home/runner/ErfanGSIs/setup.sh
+          sudo apt install -y brotli gawk python3-dev python-is-python3 p7zip-full
 
      - name: Clone botgram shell-bot repo and Generate config
        run: |
